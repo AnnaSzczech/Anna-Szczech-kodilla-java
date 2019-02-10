@@ -1,6 +1,7 @@
 package com.kodilla.testing.shape;
 
 public class Square implements Shape{
+    private String name = "square";
     private double sideA;
 
     public Square(double sideA) {
@@ -9,7 +10,7 @@ public class Square implements Shape{
 
     @Override
     public String getShapeName() {
-        return "square";
+        return name;
     }
 
     @Override
