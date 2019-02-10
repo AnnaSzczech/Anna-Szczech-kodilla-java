@@ -28,7 +28,6 @@ public class ShapeCollector {
 
     public String showFigures(){
         String figureInCollection = "";
-        System.out.println("Figury geometryczne znajdujące się w kolekcji:");
         for (Shape shape : geometricFigures) {
             figureInCollection = figureInCollection + shape + "\n";
         }

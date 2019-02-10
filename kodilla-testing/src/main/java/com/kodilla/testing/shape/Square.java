@@ -1,11 +1,12 @@
 package com.kodilla.testing.shape;
 
 public class Square implements Shape{
-    private String name = "square";
+    private String name;
     private double sideA;
 
-    public Square(double sideA) {
+    public Square(double sideA, String name) {
         this.sideA = sideA;
+        this.name = name;
     }
 
     @Override

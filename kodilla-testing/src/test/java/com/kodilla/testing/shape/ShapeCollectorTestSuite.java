@@ -26,7 +26,7 @@ public class ShapeCollectorTestSuite {
     public void testAddFigure(){
         //given
         ShapeCollector shapeCollector = new ShapeCollector();
-        Shape square = new Square(5);
+        Shape square = new Square(5, "square");
         //when
         shapeCollector.addFigure(square);
         //then
@@ -38,7 +38,7 @@ public class ShapeCollectorTestSuite {
     public void testRemoveFigureNotExisting() {
         //given
         ShapeCollector shapeCollector = new ShapeCollector();
-        Shape square = new Square(5);
+        Shape square = new Square(5, "square");
         //when
         boolean result = shapeCollector.removeFigure(square);
         //then
@@ -50,7 +50,7 @@ public class ShapeCollectorTestSuite {
     public void testRemoveFigure() {
         //given
         ShapeCollector shapeCollector = new ShapeCollector();
-        Shape square = new Square(5);
+        Shape square = new Square(5, "square");
         shapeCollector.addFigure(square);
         //when
         boolean result = shapeCollector.removeFigure(square);
@@ -63,7 +63,7 @@ public class ShapeCollectorTestSuite {
     public void testGetFigure(){
         //given
         ShapeCollector shapeCollector = new ShapeCollector();
-        Shape square = new Square(5);
+        Shape square = new Square(5, "square");
         shapeCollector.addFigure(square);
         //when
         Shape expectedShape = shapeCollector.getFigure(0);
@@ -75,18 +75,18 @@ public class ShapeCollectorTestSuite {
     public void testShowFiguresWhenCollectionIsEmpty(){
         //given
         ShapeCollector shapeCollector = new ShapeCollector();
-        Shape square = new Square(5);
+        Shape square = new Square(5, "square");
         //when
         String figuresInCollection = shapeCollector.showFigures();
         //then
-        Assert.assertEquals(figuresInCollection, null);
+        Assert.assertEquals(figuresInCollection, "");
     }
 
     @Test
     public void testShowFigures(){
         //given
         ShapeCollector shapeCollector = new ShapeCollector();
-        Shape square = new Square(5);
+        Shape square = new Square(5, "square");
         shapeCollector.addFigure(square);
         //when
         String figuresInCollection = shapeCollector.showFigures();

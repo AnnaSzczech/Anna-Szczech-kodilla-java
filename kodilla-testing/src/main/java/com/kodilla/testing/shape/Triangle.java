@@ -5,9 +5,10 @@ public class Triangle implements Shape {
     private double baseOfTheTriangle;
     private double heightOfTheTriangle;
 
-    public Triangle(double baseOfTheTriangle, double heightOfTheTriangle) {
+    public Triangle(double baseOfTheTriangle, double heightOfTheTriangle, String name) {
         this.baseOfTheTriangle = baseOfTheTriangle;
         this.heightOfTheTriangle = heightOfTheTriangle;
+        this.name = name;
     }
 
     @Override

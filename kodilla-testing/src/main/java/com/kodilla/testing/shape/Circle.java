@@ -1,11 +1,12 @@
 package com.kodilla.testing.shape;
 
 public class Circle implements Shape{
-    private String name = "circle";
+    private String name;
     private double radius;
 
-    public Circle(double radius) {
+    public Circle(double radius, String name) {
         this.radius = radius;
+        this.name = name;
     }
 
     @Override
