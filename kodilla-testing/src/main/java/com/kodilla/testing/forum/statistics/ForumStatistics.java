@@ -1,22 +1,70 @@
 package com.kodilla.testing.forum.statistics;
 
 public class ForumStatistics {
-    public Statistics statistics;
-    public int usersCount;
-    public int postsCount;
-    public int commentsCount;
-    public double averageNumberOfPostsPerUser;
-    public double averageNumberOfCommentsPerUser;
-    public double averageNumberOfCommentsPerPosts;
+    private Statistics statistics;
+    private int usersCount;
+    private int postsCount;
+    private int commentsCount;
+    private double averageNumberOfPostsPerUser;
+    private double averageNumberOfCommentsPerUser;
+    private double averageNumberOfCommentsPerPosts;
 
     public void calculateAdvStatistics(Statistics statistics) {
         this.statistics = statistics;
         usersCount = statistics.usersNames().size();
         postsCount = statistics.postsCount();
         commentsCount = statistics.commentsCount();
-        averageNumberOfPostsPerUser = postsCount/usersCount;
-        averageNumberOfCommentsPerUser = commentsCount/usersCount;
-        averageNumberOfCommentsPerPosts = commentsCount/postsCount;
+        averageNumberOfPostsPerUser = calculateAverageNumberOfPostsPerUser();
+        averageNumberOfCommentsPerUser = calculateAverageNumberOfCommentsPerUser();
+        averageNumberOfCommentsPerPosts = calculateAverageNumberOfCommentsPerPosts();
+    }
+
+    private double calculateAverageNumberOfPostsPerUser(){
+        if (usersCount == 0) {
+            System.out.println("Arithmetic error occurred  while counting 'postsCount/usersCount': don't divide by 0!");
+            return 0;
+        }
+        return (double) postsCount/usersCount;
+    }
+
+    private double calculateAverageNumberOfCommentsPerUser(){
+        if (usersCount == 0) {
+            System.out.println("Arithmetic error occurred  while counting 'commentsCount/usersCount': don't divide by 0!");
+            return 0;
+        }
+        return (double) commentsCount/usersCount;
+    }
+
+    private double calculateAverageNumberOfCommentsPerPosts(){
+        if (postsCount == 0) {
+            System.out.println("Arithmetic error occurred  while counting 'commentsCount/postsCount': don't divide by 0!");
+            return 0;
+        }
+        return (double) commentsCount/postsCount;
+    }
+
+    public int getUsersCount() {
+        return usersCount;
+    }
+
+    public int getPostsCount() {
+        return postsCount;
+    }
+
+    public int getCommentsCount() {
+        return commentsCount;
+    }
+
+    public double getAverageNumberOfPostsPerUser() {
+        return averageNumberOfPostsPerUser;
+    }
+
+    public double getAverageNumberOfCommentsPerUser() {
+        return averageNumberOfCommentsPerUser;
+    }
+
+    public double getAverageNumberOfCommentsPerPosts() {
+        return averageNumberOfCommentsPerPosts;
     }
 
     public void showStatistics() {
