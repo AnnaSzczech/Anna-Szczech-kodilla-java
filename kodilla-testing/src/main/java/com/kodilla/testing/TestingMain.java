@@ -1,11 +1,10 @@
 package com.kodilla.testing;
 
+import com.kodilla.testing.library.Book;
+
 public class TestingMain {
     public static void main(String[] args) {
-        double a = 0;
-        double b = 5;
-        double c = b/a;
-
-        System.out.println(c);
+        Book book = new Book("Gra o tron", "R.R.Martin", 1990);
+        System.out.println(book);
     }
 }
