@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.kodilla.testing.forum.statistics.ForumStatisticsTestSuite" tests="7" skipped="0" failures="0" errors="0" timestamp="2019-02-12T18:35:49" hostname="LAPTOP-IHMTTFL3" time="0.544">
+  <properties/>
+  <testcase name="testCalculateAdvStatisticsWhenNumberOfUsersIs0" classname="com.kodilla.testing.forum.statistics.ForumStatisticsTestSuite" time="0.539"/>
+  <testcase name="testCalculateAdvStatisticsWhenNumberOfCommentsIsLessThanNumberOfPosts" classname="com.kodilla.testing.forum.statistics.ForumStatisticsTestSuite" time="0.001"/>
+  <testcase name="testCalculateAdvStatisticsWhenNumberOfPostsIs1000" classname="com.kodilla.testing.forum.statistics.ForumStatisticsTestSuite" time="0.001"/>
+  <testcase name="testCalculateAdvStatisticsWhenNumberOfPostsIs0" classname="com.kodilla.testing.forum.statistics.ForumStatisticsTestSuite" time="0.001"/>
+  <testcase name="testCalculateAdvStatisticsWhenNumberOfCommentsIsGreaterThanNumberOfPosts" classname="com.kodilla.testing.forum.statistics.ForumStatisticsTestSuite" time="0.001"/>
+  <testcase name="testCalculateAdvStatisticsWhenNumberOfCommentsIs0" classname="com.kodilla.testing.forum.statistics.ForumStatisticsTestSuite" time="0.0"/>
+  <testcase name="testCalculateAdvStatisticsWhenNumberOfUsersIs100" classname="com.kodilla.testing.forum.statistics.ForumStatisticsTestSuite" time="0.0"/>
+  <system-out><![CDATA[This is the beginning of tests.
+
+Preparing to execute test #1
+Testing CalculateAdvStatistics() when number of users is 0
+Arithmetic error occurred  while counting 'postsCount/usersCount': don't divide by 0!
+Arithmetic error occurred  while counting 'commentsCount/usersCount': don't divide by 0!
+
+Preparing to execute test #2
+Testing CalculateAdvStatistics() when number of comments is less than number of posts
+
+Preparing to execute test #3
+Testing CalculateAdvStatistics() when number of posts is 1000
+
+Preparing to execute test #4
+Testing CalculateAdvStatistics() when number of posts is 0
+Arithmetic error occurred  while counting 'postsCount/usersCount': don't divide by 0!
+Arithmetic error occurred  while counting 'commentsCount/usersCount': don't divide by 0!
+Arithmetic error occurred  while counting 'commentsCount/postsCount': don't divide by 0!
+
+Preparing to execute test #5
+Testing CalculateAdvStatistics() when number of comments is greater than number of posts
+
+Preparing to execute test #6
+Testing CalculateAdvStatistics() when number of comments is 0
+
+Preparing to execute test #7
+Testing CalculateAdvStatistics() when number of users is 100
+
+All tests are finished.
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

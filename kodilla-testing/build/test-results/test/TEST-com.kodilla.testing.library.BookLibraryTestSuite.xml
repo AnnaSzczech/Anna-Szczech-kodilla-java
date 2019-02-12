@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.kodilla.testing.library.BookLibraryTestSuite" tests="1" skipped="0" failures="0" errors="0" timestamp="2019-02-12T18:35:50" hostname="LAPTOP-IHMTTFL3" time="0.0">
+  <properties/>
+  <testcase name="testListBooksInHandsOfWhenLibraryUserHave0Books" classname="com.kodilla.testing.library.BookLibraryTestSuite" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
