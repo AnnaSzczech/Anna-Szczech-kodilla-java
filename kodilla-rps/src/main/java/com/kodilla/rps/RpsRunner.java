@@ -1,11 +1,10 @@
 package com.kodilla.rps;
 
-import com.kodilla.rps.movement.Movements;
-import com.kodilla.rps.movement.moves.Paper;
+import com.kodilla.rps.game.Game;
 
 public class RpsRunner {
     public static void main(String[] args) {
-        Paper paper = new Paper(Movements.PAPER);
-        System.out.println(paper.getMovements());
+        Game game = new Game();
+        game.run();
     }
 }

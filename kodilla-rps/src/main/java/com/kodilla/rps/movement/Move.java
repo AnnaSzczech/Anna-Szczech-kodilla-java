@@ -1,6 +1,6 @@
 package com.kodilla.rps.movement;
 
-public enum Movements {
+public enum Move {
     ROCK, PAPER, SCISSORS;
 
     public String toString() {

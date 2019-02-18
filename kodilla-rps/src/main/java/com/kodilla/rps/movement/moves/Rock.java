@@ -1,22 +1,22 @@
 package com.kodilla.rps.movement.moves;
 
-import com.kodilla.rps.movement.Movements;
-import com.kodilla.rps.movement.PlayerMovement;
+import com.kodilla.rps.movement.Move;
+import com.kodilla.rps.movement.PlayerMove;
 
-public final class Rock implements PlayerMovement {
-    private final Movements movements;
+public final class Rock implements PlayerMove {
+    private final Move move;
 
-    public Rock(final Movements movements){
-        this.movements = movements;
+    public Rock(final Move move){
+        this.move = move;
     }
 
-    public Movements getMovements() {
-        return movements;
+    public Move getMove() {
+        return move;
     }
 
-    public boolean isSuccessful(Movements movements){
+    public boolean isSuccessful(Move move){
         boolean result = false;
-        if (movements == Movements.SCISSORS) result = true;
+        if (move.equals(Move.SCISSORS)) result = true;
         return result;
     }
 
@@ -27,11 +27,11 @@ public final class Rock implements PlayerMovement {
 
         Rock rock = (Rock) o;
 
-        return getMovements() == rock.getMovements();
+        return getMove() == rock.getMove();
     }
 
     @Override
     public int hashCode() {
-        return getMovements().hashCode();
+        return getMove().hashCode();
     }
 }
