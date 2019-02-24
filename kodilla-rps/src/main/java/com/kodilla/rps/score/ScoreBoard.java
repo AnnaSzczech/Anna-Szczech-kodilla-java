@@ -1,8 +1,7 @@
 package com.kodilla.rps.score;
 
-import com.kodilla.rps.game.Game;
 import com.kodilla.rps.movement.Move;
-import com.kodilla.rps.movement.PlayerMove;
+import com.kodilla.rps.movement.Player;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -11,38 +10,42 @@ public final class ScoreBoard {
     private final Map<Integer, Round> listOfRounds = new HashMap<>();
     Points results = new Points();
 
-    public void addRoundToBoard(Round roundResult){
-        listOfRounds.put(Game.counter, roundResult);
+    public void addRoundToBoard(Round roundResult, int counter){
+        listOfRounds.put(counter, roundResult);
         Move playerMove = roundResult.getPlayerMove().getMove();
         Move computerMove = roundResult.getComputerMove().getMove();
-        System.out.println("player, " + playerMove + " : computer, " + computerMove);
+        System.out.println("player - " + playerMove + " : computer - " + computerMove +"\n");
         if (!playerMove.equals(computerMove)) {
             setThePoint(roundResult.getPlayerMove(), roundResult.getComputerMove());
         }
     }
 
-    public void setThePoint(PlayerMove playerMove, PlayerMove computerMove){
-        if (playerMove.isSuccessful(computerMove.getMove())){
+    public void setThePoint(Player playerMove, Player computerMove){
+        if (playerMove.isWin(computerMove.getMove())){
             results.addPointsToPlayer();
         } else {
             results.addPointsToComputer();
         }
     }
 
-    public void resetScoreBoard(){
+    public void startNewGame(){
         results.resetPoints();
         listOfRounds.clear();
     }
 
     public void printResults(){
-        System.out.println("\n" + results);
-        for (Map.Entry<Integer, Round> round : listOfRounds.entrySet()) {
-            System.out.println(round.getKey() + ". " + round.getValue());
+        if (!(results.getComputerPoints() == 0 && results.getPlayerPoints() == 0)) {
+            System.out.println(results);
         }
     }
 
-    public HashMap<Integer, Round> getListOfRounds() {
-        return new HashMap<>(listOfRounds);
+    public void printHistoryOfGame(){
+        System.out.println("\n<> History of Game <>");
+        for (Map.Entry<Integer, Round> round : listOfRounds.entrySet()) {
+            System.out.println(round.getKey() + ". " + round.getValue());
+        }
+        System.out.println("\n<> FINALE SCORE <>");
+        printResults();
     }
 
     public Points getResults() {

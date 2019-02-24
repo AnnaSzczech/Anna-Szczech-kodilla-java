@@ -45,14 +45,23 @@ public class BoardTestSuite {
         Board project = prepareTestData();
 
         //when
-        TaskList inProgressTasks = new TaskList("In progress");
-        int indexOfTaskInProgress = project.getTaskLists().indexOf(inProgressTasks);
-        int inProgressTasksQuantity = project.getTaskLists().get(indexOfTaskInProgress).getTasks().size();
-
-        double average = IntStream.range(0, inProgressTasksQuantity)
-                .mapToLong(n -> project.getTaskLists().get(indexOfTaskInProgress).getTasks().get(n).getCreated().until(LocalDate.now(), ChronoUnit.DAYS))
+        List<TaskList> inProgressTasks = new ArrayList<>();
+        inProgressTasks.add(new TaskList("In progress"));
+        double average = project.getTaskLists().stream()
+                .filter(inProgressTasks::contains)
+                .flatMap(t1 -> t1.getTasks().stream())
+                .map(t -> t.getCreated())
+                .mapToDouble(d -> d.until(LocalDate.now(), ChronoUnit.DAYS))
                 .average()
                 .getAsDouble();
+        
+//        TaskList inProgressTasks = new TaskList("In progress");
+//        int indexOfTaskInProgress = project.getTaskLists().indexOf(inProgressTasks);
+//        int inProgressTasksQuantity = project.getTaskLists().get(indexOfTaskInProgress).getTasks().size();
+//        double average = IntStream.range(0, inProgressTasksQuantity)
+//                .mapToLong(n -> project.getTaskLists().get(indexOfTaskInProgress).getTasks().get(n).getCreated().until(LocalDate.now(), ChronoUnit.DAYS))
+//                .average()
+//                .getAsDouble();
 
         //then
         Assert.assertEquals(10.0, average, 0.01);

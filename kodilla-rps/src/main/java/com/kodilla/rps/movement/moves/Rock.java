@@ -1,20 +1,20 @@
 package com.kodilla.rps.movement.moves;
 
 import com.kodilla.rps.movement.Move;
-import com.kodilla.rps.movement.PlayerMove;
+import com.kodilla.rps.movement.Player;
 
-public final class Rock implements PlayerMove {
-    private final Move move;
+public final class Rock implements Player {
+//    private final Move move;
 
-    public Rock(final Move move){
-        this.move = move;
-    }
+//    public Rock(final Move move){
+//        this.move = move;
+//    }
 
     public Move getMove() {
-        return move;
+        return Move.ROCK;
     }
 
-    public boolean isSuccessful(Move move){
+    public boolean isWin(Move move){
         boolean result = false;
         if (move.equals(Move.SCISSORS)) result = true;
         return result;

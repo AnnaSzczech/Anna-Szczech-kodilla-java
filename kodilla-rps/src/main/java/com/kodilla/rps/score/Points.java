@@ -2,19 +2,19 @@ package com.kodilla.rps.score;
 
 public class Points {
     private int computerPoints = 0;
-    private int playerPoints = 0;
+    private int userPoints = 0;
 
     public void addPointsToComputer(){
         computerPoints++;
     }
 
     public void addPointsToPlayer(){
-        playerPoints++;
+        userPoints++;
     }
 
     public void resetPoints(){
         computerPoints = 0;
-        playerPoints = 0;
+        userPoints = 0;
     }
 
     public int getComputerPoints() {
@@ -22,12 +22,12 @@ public class Points {
     }
 
     public int getPlayerPoints() {
-        return playerPoints;
+        return userPoints;
     }
 
     @Override
     public String toString() {
         return "Punkty gracza : Punkty komputera\n" +
-                 "        " + playerPoints + "     :      " + computerPoints;
+                 "        " + userPoints + "     :      " + computerPoints;
     }
 }
