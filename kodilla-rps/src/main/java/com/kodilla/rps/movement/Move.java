@@ -1,13 +1,12 @@
 package com.kodilla.rps.movement;
 
-import com.kodilla.rps.movement.moves.Paper;
-import com.kodilla.rps.movement.moves.Rock;
-import com.kodilla.rps.movement.moves.Scissors;
+import com.kodilla.rps.movement.moves.*;
 
 import java.util.Arrays;
 
 public enum Move {
-    ROCK("1", new Rock()), PAPER("2", new Paper()), SCISSORS("3", new Scissors());
+    ROCK("1", new Rock()), PAPER("2", new Paper()), SCISSORS("3", new Scissors()),
+    LIZARD("4", new Lizard()), SPOCK("5", new Spock());
 
     private final String selectedMove;
     private final Player player;
@@ -24,5 +23,9 @@ public enum Move {
 
     public String toString() {
         return super.toString().toLowerCase();
+    }
+
+    public Player getPlayer() {
+        return player;
     }
 }

@@ -3,12 +3,10 @@ package com.kodilla.rps.movement.moves;
 import com.kodilla.rps.movement.Move;
 import com.kodilla.rps.movement.Player;
 
-public final class Paper implements Player {
-//    private final Move move;
+import java.util.ArrayList;
+import java.util.List;
 
-//    public Paper(final Move move){
-//        this.move = move;
-//    }
+public final class Paper implements Player {
 
     public Move getMove() {
         return Move.PAPER;
@@ -16,7 +14,9 @@ public final class Paper implements Player {
 
     public boolean isWin(Move move) {
         boolean result = false;
-        if (move.equals(Move.ROCK)) result = true;
+        if (move.equals(Move.ROCK) || move.equals(Move.SPOCK)) {
+            result = true;
+        }
         return result;
     }
 
@@ -33,5 +33,13 @@ public final class Paper implements Player {
     @Override
     public int hashCode() {
         return getMove().hashCode();
+    }
+
+    @Override
+    public ArrayList<Move> whichMoveComputerShouldChooseToWin(){
+        List<Move> winningMoves = new ArrayList<>();
+        winningMoves.add(Move.LIZARD);
+        winningMoves.add(Move.SCISSORS);
+        return new ArrayList<>(winningMoves);
     }
 }

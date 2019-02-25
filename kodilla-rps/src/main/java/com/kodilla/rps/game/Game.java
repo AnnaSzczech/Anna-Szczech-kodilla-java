@@ -6,7 +6,6 @@ import com.kodilla.rps.score.Round;
 import com.kodilla.rps.score.ScoreBoard;
 
 import java.util.Scanner;
-import java.util.function.Supplier;
 
 public class Game {
     private int counter = 0;
@@ -15,6 +14,7 @@ public class Game {
     private String name;
     private ScoreBoard scoreBoard = new ScoreBoard();
     private Scanner sc = new Scanner(System.in);
+    private boolean isEasyLvl = true;
 
 
     public void newRound(){
@@ -26,12 +26,24 @@ public class Game {
         System.out.println("Jak masz na imię?");
         name = sc.nextLine();
         howManyRounds();
+        selectTheLvl();
         System.out.println("\nInformacja dot. klawiszy służących do obsługi gry:\n" +
                 "    klawisz 1 - zagranie \"kamień\",\n" +
                 "    klawisz 2 - zagranie \"papier\",\n" +
                 "    klawisz 3 - zagranie \"nożyce\",\n" +
+                "    klawisz 4 - zagranie \"jaszczurka\",\n" +
+                "    klawisz 5 - zagranie \"spock\",\n" +
                 "    klawisz x - zakończenie gry, poprzedzone pytaniem \"Czy na pewno zakończyć grę?\",\n" +
                 "    klawisz n - uruchomienie gry od nowa, poprzedzone pytaniem \"Czy na pewno zakończyć aktualną grę?\",");
+    }
+
+    public void selectTheLvl(){
+        System.out.println("Czy poziom gry ma być łatwy T/N?");
+        String easyOrDifficultLvl = sc.nextLine();
+        if (!isYes(easyOrDifficultLvl)) {
+            System.out.println("ma byc trudny");
+            isEasyLvl = false;
+        }
     }
 
     public void howManyRounds(){
@@ -79,7 +91,7 @@ public class Game {
     }
 
     public void makeMove(Player userMove){
-        Player computerMove = drawComputerMove();
+        Player computerMove = drawComputerMove(userMove);
         scoreBoard.addRoundToBoard(new Round(userMove, computerMove), counter);
         checkIfTheGameIsOver();
     }
@@ -114,22 +126,25 @@ public class Game {
         System.out.println("Napewno chcesz rozpocząć nową grę T/N?");
         String isEndOfTheGame = sc.nextLine();
         if (isYes(isEndOfTheGame)) {
-            counter = 0;
-            scoreBoard.startNewGame();
+            resetVariables();
             printInformation();
         } else {
             counter--;
         }
     }
 
+    public void resetVariables(){
+        counter = 0;
+        scoreBoard.startNewGame();
+        isEasyLvl = true;
+    }
+
     public boolean isYes(String isEndOfTheGame){
         return isEndOfTheGame.substring(0, 1).equalsIgnoreCase("T");
     }
 
-    public Player drawComputerMove(){
-        int numberOdMove = (int) (Math.random()*3 + 1);
-        Supplier supplier = () -> Move.returnSelectedMove(String.valueOf(numberOdMove));
-        Player computerMove = (Player) supplier.get();
-        return computerMove;
+    public Player drawComputerMove(Player userMove){
+        ComputerLogic computerLogic = new ComputerLogic(isEasyLvl, userMove);
+        return computerLogic.selectTheMove();
     }
 }
