@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.kodilla.rps.ComputerLogicTestSuite" tests="5" skipped="0" failures="0" errors="0" timestamp="2019-02-25T17:43:44" hostname="LAPTOP-IHMTTFL3" time="0.006">
+<testsuite name="com.kodilla.rps.ComputerLogicTestSuite" tests="5" skipped="0" failures="0" errors="0" timestamp="2019-03-26T17:12:51" hostname="LAPTOP-IHMTTFL3" time="0.01">
   <properties/>
-  <testcase name="testReduceThePlayersChancesWhenRandomNumberIsBiggerThan50" classname="com.kodilla.rps.ComputerLogicTestSuite" time="0.004"/>
-  <testcase name="testCheckWhichMoveIsWinningAndWhichIsNotNotWinningMove" classname="com.kodilla.rps.ComputerLogicTestSuite" time="0.001"/>
-  <testcase name="testCheckWhichMoveIsWinningAndWhichIsNotWinningMove" classname="com.kodilla.rps.ComputerLogicTestSuite" time="0.0"/>
-  <testcase name="testReduceThePlayersChancesWhenRandomNumberIsBiggerThan25AndLowerThen51" classname="com.kodilla.rps.ComputerLogicTestSuite" time="0.0"/>
-  <testcase name="testReduceThePlayersChancesWhenRandomNumberIsLowerThen26" classname="com.kodilla.rps.ComputerLogicTestSuite" time="0.0"/>
+  <testcase name="testReduceThePlayersChancesWhenRandomNumberIsBiggerThan50" classname="com.kodilla.rps.ComputerLogicTestSuite" time="0.003"/>
+  <testcase name="testCheckWhichMoveIsWinningAndWhichIsNotNotWinningMove" classname="com.kodilla.rps.ComputerLogicTestSuite" time="0.0"/>
+  <testcase name="testCheckWhichMoveIsWinningAndWhichIsNotWinningMove" classname="com.kodilla.rps.ComputerLogicTestSuite" time="0.001"/>
+  <testcase name="testReduceThePlayersChancesWhenRandomNumberIsBiggerThan25AndLowerThen51" classname="com.kodilla.rps.ComputerLogicTestSuite" time="0.001"/>
+  <testcase name="testReduceThePlayersChancesWhenRandomNumberIsLowerThen26" classname="com.kodilla.rps.ComputerLogicTestSuite" time="0.001"/>
   <system-out><![CDATA[This is the beginning of tests.
 
 Preparing to execute test #1

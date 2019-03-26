@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.kodilla.testing.forum.statistics.ForumStatisticsTestSuite" tests="7" skipped="0" failures="0" errors="0" timestamp="2019-02-25T17:43:49" hostname="LAPTOP-IHMTTFL3" time="0.361">
+<testsuite name="com.kodilla.testing.forum.statistics.ForumStatisticsTestSuite" tests="7" skipped="0" failures="0" errors="0" timestamp="2019-03-26T17:12:57" hostname="LAPTOP-IHMTTFL3" time="0.715">
   <properties/>
-  <testcase name="testCalculateAdvStatisticsWhenNumberOfUsersIs0" classname="com.kodilla.testing.forum.statistics.ForumStatisticsTestSuite" time="0.356"/>
-  <testcase name="testCalculateAdvStatisticsWhenNumberOfCommentsIsLessThanNumberOfPosts" classname="com.kodilla.testing.forum.statistics.ForumStatisticsTestSuite" time="0.001"/>
-  <testcase name="testCalculateAdvStatisticsWhenNumberOfPostsIs1000" classname="com.kodilla.testing.forum.statistics.ForumStatisticsTestSuite" time="0.001"/>
-  <testcase name="testCalculateAdvStatisticsWhenNumberOfPostsIs0" classname="com.kodilla.testing.forum.statistics.ForumStatisticsTestSuite" time="0.001"/>
-  <testcase name="testCalculateAdvStatisticsWhenNumberOfCommentsIsGreaterThanNumberOfPosts" classname="com.kodilla.testing.forum.statistics.ForumStatisticsTestSuite" time="0.0"/>
-  <testcase name="testCalculateAdvStatisticsWhenNumberOfCommentsIs0" classname="com.kodilla.testing.forum.statistics.ForumStatisticsTestSuite" time="0.0"/>
+  <testcase name="testCalculateAdvStatisticsWhenNumberOfUsersIs0" classname="com.kodilla.testing.forum.statistics.ForumStatisticsTestSuite" time="0.702"/>
+  <testcase name="testCalculateAdvStatisticsWhenNumberOfCommentsIsLessThanNumberOfPosts" classname="com.kodilla.testing.forum.statistics.ForumStatisticsTestSuite" time="0.002"/>
+  <testcase name="testCalculateAdvStatisticsWhenNumberOfPostsIs1000" classname="com.kodilla.testing.forum.statistics.ForumStatisticsTestSuite" time="0.003"/>
+  <testcase name="testCalculateAdvStatisticsWhenNumberOfPostsIs0" classname="com.kodilla.testing.forum.statistics.ForumStatisticsTestSuite" time="0.002"/>
+  <testcase name="testCalculateAdvStatisticsWhenNumberOfCommentsIsGreaterThanNumberOfPosts" classname="com.kodilla.testing.forum.statistics.ForumStatisticsTestSuite" time="0.002"/>
+  <testcase name="testCalculateAdvStatisticsWhenNumberOfCommentsIs0" classname="com.kodilla.testing.forum.statistics.ForumStatisticsTestSuite" time="0.002"/>
   <testcase name="testCalculateAdvStatisticsWhenNumberOfUsersIs100" classname="com.kodilla.testing.forum.statistics.ForumStatisticsTestSuite" time="0.001"/>
   <system-out><![CDATA[This is the beginning of tests.
 
