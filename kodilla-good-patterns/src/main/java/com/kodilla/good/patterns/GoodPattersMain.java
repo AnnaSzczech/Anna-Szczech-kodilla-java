@@ -1,15 +1,17 @@
 package com.kodilla.good.patterns;
 
-import com.kodilla.good.patterns.challenges.MovieStore;
-
-import java.util.stream.Collectors;
+import com.kodilla.good.patterns.challenges.*;
+import com.kodilla.good.patterns.challenges.implementation.MailService;
+import com.kodilla.good.patterns.challenges.implementation.ProductOrderRepository;
+import com.kodilla.good.patterns.challenges.implementation.ProductOrderService;
 
 public class GoodPattersMain {
 
     public static void main(String[] args) {
-        MovieStore movieStore = new MovieStore();
-        String movieList = movieStore.getMovies().entrySet().stream()
-                .flatMap(movie -> movie.getValue().stream()).collect(Collectors.joining(" ! "));
-        System.out.println(movieList);
+        OrderRequestRetriever orderRequestRetriever = new OrderRequestRetriever();
+        OrderRequest orderRequest = orderRequestRetriever.retrieve();
+
+        OrderProcessor orderProcessor = new OrderProcessor(new MailService(), new ProductOrderService(), new ProductOrderRepository());
+        orderProcessor.process(orderRequest);
     }
 }
