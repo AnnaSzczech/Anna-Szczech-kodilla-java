@@ -1,19 +1,19 @@
 package com.kodilla.good.patterns.flights.service.retrieve;
 
-import com.kodilla.good.patterns.flights.service.flight.service.FlightRoute;
+import com.kodilla.good.patterns.flights.service.flight.service.FlightRouteCombo;
 
 import java.util.Set;
 
 public class FlightRoutDTo {
-    private final Set<FlightRoute> flightRoute;
+    private final Set<FlightRouteCombo> flightRoute;
     private final boolean exist;
 
-    public FlightRoutDTo(Set<FlightRoute> flightRoute, boolean exist) {
+    public FlightRoutDTo(Set<FlightRouteCombo> flightRoute, boolean exist) {
         this.flightRoute = flightRoute;
         this.exist = exist;
     }
 
-    public Set<FlightRoute> getFlightRoute() {
+    public Set<FlightRouteCombo> getFlightRoute() {
         return flightRoute;
     }
 

@@ -19,7 +19,7 @@ public class FlightRoute {
 
     @Override
     public String toString() {
-        return "FlightRoute: " + from + " -> " + to;
+        return from + " -> " + to;
     }
 
     @Override

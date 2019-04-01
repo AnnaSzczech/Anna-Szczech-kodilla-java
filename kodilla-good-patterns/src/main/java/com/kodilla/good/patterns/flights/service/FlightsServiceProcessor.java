@@ -1,35 +1,35 @@
 package com.kodilla.good.patterns.flights.service;
 
 import com.kodilla.good.patterns.flights.service.flight.service.FlightRoute;
-import com.kodilla.good.patterns.flights.service.flight.service.Flights;
-import com.kodilla.good.patterns.flights.service.flight.service.FlightsRouteDB;
+import com.kodilla.good.patterns.flights.service.flight.service.FlightRouteCombo;
+import com.kodilla.good.patterns.flights.service.flight.service.FlightRouteService;
 import com.kodilla.good.patterns.flights.service.retrieve.FlightRoutDTo;
 import com.kodilla.good.patterns.flights.service.retrieve.FlightRouteRequest;
 
-import java.util.Collection;
+import java.util.Map;
 import java.util.Set;
-import java.util.stream.Collector;
 import java.util.stream.Collectors;
 
 public class FlightsServiceProcessor {
-    private final Flights flights;
     private final MailService mailService;
+    private final FlightRouteService flightRouteService;
 
-    public FlightsServiceProcessor(Flights flights, MailService mailService) {
-        this.flights = flights;
+    public FlightsServiceProcessor(FlightRouteService flightRouteService, MailService mailService) {
+        this.flightRouteService = flightRouteService;
         this.mailService = mailService;
     }
 
     public FlightRoutDTo process(FlightRouteRequest flightRouteRequest){
-        FlightsRouteDB flightsRouteDB = new FlightsRouteDB();
-        Set<FlightRoute> listOfFlights = flightsRouteDB.downloadDB();
-        listOfFlights = flights.findSpecificFlights(flightRouteRequest.getFlightRoute(), listOfFlights);
-        if (listOfFlights.size() != 0) {
-            mailService.inform(flightRouteRequest.getUser(), "Found flight route: " + listOfFlights.stream().map(n -> n.toString()).collect(Collectors.joining("\n", "\n", "\n")));
-            return new FlightRoutDTo(listOfFlights, true);
+        Set<FlightRouteCombo> listOfFlightsNotDirect = flightRouteService.findFlightsNoDirect(flightRouteRequest.getFlightRoute());
+        if (listOfFlightsNotDirect.size() != 0) {
+            String message = listOfFlightsNotDirect.stream()
+                    .map(routeFlights -> routeFlights.toString())
+                    .collect(Collectors.joining("\n", "\n", "\n"));
+            mailService.inform(flightRouteRequest.getUser(), "Found flight route: " + message);
+            return new FlightRoutDTo(listOfFlightsNotDirect, true);
         } else {
             mailService.inform(flightRouteRequest.getUser(), "Flight route not found!\n");
-            return new FlightRoutDTo(listOfFlights, false);
+            return new FlightRoutDTo(listOfFlightsNotDirect, false);
         }
     }
 }
