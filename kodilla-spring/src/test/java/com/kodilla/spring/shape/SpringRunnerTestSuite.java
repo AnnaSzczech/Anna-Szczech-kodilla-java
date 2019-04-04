@@ -1,4 +1,4 @@
-package com.kodilla.spring;
+package com.kodilla.spring.shape;
 
 import com.kodilla.spring.shape.Circle;
 import com.kodilla.spring.shape.Shape;
@@ -19,7 +19,7 @@ public class SpringRunnerTestSuite {
     public void testCircleLoadedIntoContainer(){
         //given
         ApplicationContext context = new AnnotationConfigApplicationContext("com.kodilla.spring");
-        Shape shape = context.getBean(Circle.class);
+        Shape shape = (Shape) context.getBean("circle");
         //when
         String result = shape.getShapeName();
         //then
@@ -30,10 +30,32 @@ public class SpringRunnerTestSuite {
     public void testTriangleLoadedIntoContainer(){
         //given
         ApplicationContext context = new AnnotationConfigApplicationContext("com.kodilla.spring");
-        Shape shape = context.getBean(Triangle.class);
+        Shape shape = (Shape) context.getBean("triangle");
         //when
         String result = shape.getShapeName();
         //then
         Assert.assertEquals("This is a triangle.", result);
+    }
+
+    @Test
+    public void testSquareLoadedIntoContainer(){
+        //given
+        ApplicationContext context = new AnnotationConfigApplicationContext("com.kodilla.spring");
+        Shape shape = (Shape) context.getBean("square");
+        //when
+        String result = shape.getShapeName();
+        //then
+        Assert.assertEquals("This is a square.", result);
+    }
+
+    @Test
+    public void testShapeLoadedIntoContainer(){
+        //given
+        ApplicationContext context = new AnnotationConfigApplicationContext("com.kodilla.spring");
+        Shape shape =(Shape) context.getBean("chooseShape");
+        //when
+        String result = shape.getShapeName();
+        //then
+        System.out.println("Chosen shape says: " + result);
     }
 }
