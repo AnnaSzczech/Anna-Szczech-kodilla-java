@@ -7,6 +7,10 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import java.lang.reflect.Array;
+import java.util.Arrays;
+import java.util.stream.Stream;
+
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class LibraryTestSuite {
@@ -31,5 +35,16 @@ public class LibraryTestSuite {
         library.loadDb();
         //then
         //do nothing
+    }
+
+    @Test
+    public void testContext(){
+        //given
+        ApplicationContext context = new AnnotationConfigApplicationContext("com.kodilla.spring");
+        // when & then
+        System.out.println("===== Beans list: ==== >>");
+        Arrays.stream(context.getBeanDefinitionNames())
+                .forEach(System.out::println);
+        System.out.println("<< ===== Beans list ====");
     }
 }
