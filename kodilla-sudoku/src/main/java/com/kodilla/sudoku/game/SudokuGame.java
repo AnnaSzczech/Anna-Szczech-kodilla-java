@@ -2,7 +2,6 @@ package com.kodilla.sudoku.game;
 
 import com.kodilla.sudoku.gui.SudokuBoard;
 
-import java.util.List;
 import java.util.Scanner;
 
 public class SudokuGame {
@@ -12,32 +11,36 @@ public class SudokuGame {
         scanner = new Scanner(System.in);
     }
 
-    public void run(){
-        System.out.println("Make move x,y,number");
+    public void run() throws CloneNotSupportedException{
         SudokuBoard sudokuBoard = new SudokuBoard();
         sudokuBoard.createSudokuRowsInBoard();
-        for (int i =0; i<2; i++) {
+        sudokuBoard.printResult();
+        int emptyField = sudokuBoard.howManyEmptyFieldIsInBoard();
+        while (emptyField != 0) {
+            System.out.println("Make move x,y,number");
             String moveText = scanner.next();
-            Move move = changeTextIntoMove(moveText);
-            sudokuBoard.changeValueInBoardIfPossible(move);
-            System.out.println(sudokuBoard);
+            if (isSudokuWritten(moveText)){
+                sudokuBoard.algorithm();
+            } else {
+                WrittenTextChecker writtenTextChecker = new WrittenTextChecker(moveText);
+                if (writtenTextChecker.isTextCorrect()) {
+                    Move move = writtenTextChecker.getMove();
+                    sudokuBoard.changeValueInBoardIfPossible(move);
+                    sudokuBoard.printResult();
+                }
+            }
+            emptyField = sudokuBoard.howManyEmptyFieldIsInBoard();
         }
     }
 
-    public Move changeTextIntoMove(String text){
-        String[] textSeparateForInt = text.split(",");
-        int coordinateX = getIntegerFromText(textSeparateForInt[0]);
-        int coordinateY = getIntegerFromText(textSeparateForInt[1]);
-        int number = getIntegerFromText(textSeparateForInt[2]);
-        return new Move(coordinateX, coordinateY, number);
+    private boolean isSudokuWritten(String text){
+        return text.equalsIgnoreCase("SUDOKU");
     }
 
-    public int getIntegerFromText(String text){
-        return Integer.valueOf(text);
-    }
 
     public boolean resolveSudoku(){
-        // będzie zwracała informację o tym czy użytkownik chce zrealizować kolejne Sudoku (wówczas zwraca true) lub zakończyć pracę z programem (wówczas zwraca false).
-        return true;
+        System.out.println("One more game? Y/N");
+        String moveText = scanner.next();
+        return !moveText.equalsIgnoreCase("Y");
     }
 }

@@ -1,6 +1,7 @@
 package com.kodilla.sudoku.gui;
 
 import com.kodilla.sudoku.gui.SudokuElement;
+import com.kodilla.sudoku.logic.Coordinates;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,14 +14,14 @@ public class SudokuRow {
         sudokuElementsInRow = new ArrayList<>();
     }
 
-    public void createSudokuElementsInRow(){
+    public void createSudokuElementsInRow(int indexY){
         IntStream.iterate(1, n -> n+1)
                 .limit(9)
-                .forEach(n -> sudokuElementsInRow.add(createEmptySudokuElement()));
+                .forEach(n -> sudokuElementsInRow.add(createEmptySudokuElement(n, indexY)));
     }
 
-    private SudokuElement createEmptySudokuElement(){
-        SudokuElement sudokuElement = new SudokuElement();
+    private SudokuElement createEmptySudokuElement(int indexX, int indexY){
+        SudokuElement sudokuElement = new SudokuElement(new Coordinates(indexX, indexY));
         sudokuElement.createPossibleValuesCollection();
         return sudokuElement;
     }
