@@ -1,12 +1,13 @@
 package com.kodilla.jdbc;
 
 import org.junit.Assert;
+import org.junit.Ignore;
 import org.junit.Test;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-
+@Ignore
 public class DbManagerTestSuite {
     @Test
     public void testGetConnection() throws SQLException {
