@@ -101,7 +101,11 @@ public class SudokuBoardTestSuite {
         System.out.println(sudokuBoard.toString());
         sudokuBoard.algorithm();
         //then
+        int emptyField = sudokuBoard.howManyEmptyFieldIsInBoard();
         sudokuBoard.toString();
+        if (emptyField != 0){
+            Assert.assertTrue(sudokuBoard.isWrongCreatedSudoku());
+        }
     }
 
 

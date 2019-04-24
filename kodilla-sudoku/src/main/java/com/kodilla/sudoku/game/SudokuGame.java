@@ -16,27 +16,18 @@ public class SudokuGame {
         sudokuBoard.createSudokuRowsInBoard();
         sudokuBoard.printResult();
         int emptyField = sudokuBoard.howManyEmptyFieldIsInBoard();
-        while (emptyField != 0) {
-            System.out.println("Make move x,y,number");
-            String moveText = scanner.next();
-            if (isSudokuWritten(moveText)){
-                sudokuBoard.algorithm();
-            } else {
-                WrittenTextChecker writtenTextChecker = new WrittenTextChecker(moveText);
-                if (writtenTextChecker.isTextCorrect()) {
-                    Move move = writtenTextChecker.getMove();
-                    sudokuBoard.changeValueInBoardIfPossible(move);
-                    sudokuBoard.printResult();
-                }
-            }
+        while (emptyField != 0 && !sudokuBoard.isWrongCreatedSudoku()) {
+            fillTheSudokuBoard(sudokuBoard);
             emptyField = sudokuBoard.howManyEmptyFieldIsInBoard();
         }
     }
 
-    private boolean isSudokuWritten(String text){
-        return text.equalsIgnoreCase("SUDOKU");
+    private void fillTheSudokuBoard(SudokuBoard sudokuBoard) throws CloneNotSupportedException{
+        System.out.println("Make move x,y,number");
+        String moveText = scanner.next();
+        MoveExecuter moveExecuter = new MoveExecuter(sudokuBoard, moveText);
+        moveExecuter.makeMove();
     }
-
 
     public boolean resolveSudoku(){
         System.out.println("One more game? Y/N");
