@@ -9,7 +9,6 @@ import java.util.List;
         name = "Company.retrieveCompanyWhichNameStartsWith",
         query = "SELECT * FROM COMPANIES " +
                 "WHERE SUBSTRING(COMPANY_NAME, '1', '3') LIKE :NAME",
-//                "WHERE COMPANY_NAME LIKE :NAME",
         resultClass = Company.class
 )
 @Entity
