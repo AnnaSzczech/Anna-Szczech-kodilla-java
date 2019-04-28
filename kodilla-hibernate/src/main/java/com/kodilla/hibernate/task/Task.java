@@ -1,62 +1,88 @@
-package com.kodilla.hibernate.task;
-
-import javax.persistence.*;
-import javax.validation.constraints.NotNull;
-import java.util.Date;
-
-@Entity
-@Table(name = "TASKS")
-public class Task {
-    private int id;
-    private String description;
-    private Date created;
-    private int duration;
-
-    public Task(){}
-
-    public Task(String description, int duration) {
-        this.description = description;
-        this.created = new Date();
-        this.duration = duration;
-    }
-
-    @Id
-    @GeneratedValue
-    @NotNull
-    @Column(name = "ID", unique = true)
-    public int getId() {
-        return id;
-    }
-
-    @Column(name = "DESCRIPTION")
-    public String getDescription() {
-        return description;
-    }
-
-    @NotNull
-    @Column(name = "CREATED")
-    public Date getCreated() {
-        return created;
-    }
-
-    @Column(name = "DURATION")
-    public int getDuration() {
-        return duration;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public void setCreated(Date created) {
-        this.created = created;
-    }
-
-    public void setDuration(int duration) {
-        this.duration = duration;
-    }
-}
+//package com.kodilla.hibernate.task;
+//
+//import com.kodilla.hibernate.tasklist.TaskList;
+//
+//import javax.persistence.*;
+//import javax.validation.constraints.NotNull;
+//import java.util.ArrayList;
+//import java.util.Date;
+//import java.util.List;
+//
+//@Entity
+//@Table(name = "TASKS")
+//public final class Task {
+//    private int id;
+//    private String description;
+//    private Date created;
+//    private int duration;
+//    private TaskFinancialDetails taskFinancialDetails;
+//    private TaskList taskList;
+//
+//    public Task(){}
+//
+//    public Task(String description, int duration) {
+//        this.description = description;
+//        this.created = new Date();
+//        this.duration = duration;
+//    }
+//
+//    @Id
+//    @GeneratedValue(strategy = GenerationType.IDENTITY)  //Dla MySQL najbardziej polecane
+//    @NotNull
+//    @Column(name = "ID", unique = true)
+//    public int getId() {
+//        return id;
+//    }
+//
+//    @Column(name = "DESCRIPTION")
+//    public String getDescription() {
+//        return description;
+//    }
+//
+//    @NotNull
+//    @Column(name = "CREATED")
+//    public Date getCreated() {
+//        return created;
+//    }
+//
+//    @Column(name = "DURATION")
+//    public int getDuration() {
+//        return duration;
+//    }
+//
+//    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+//    @JoinColumn(name = "TASK_FINANCIALS_ID")
+//    public TaskFinancialDetails getTaskFinancialDetails() {
+//        return taskFinancialDetails;
+//    }
+//
+//    @ManyToOne
+//    @JoinColumn(name = "TASKLIST_ID")
+//    public TaskList getTaskList() {
+//        return taskList;
+//    }
+//
+//    public void setTaskList(TaskList taskLists) {
+//        this.taskList = taskLists;
+//    }
+//
+//    public void setTaskFinancialDetails(TaskFinancialDetails taskFinancialDetails) {
+//        this.taskFinancialDetails = taskFinancialDetails;
+//    }
+//
+//    private void setId(int id) {
+//        this.id = id;
+//    }
+//
+//    private void setDescription(String description) {
+//        this.description = description;
+//    }
+//
+//    private void setCreated(Date created) {
+//        this.created = created;
+//    }
+//
+//    private void setDuration(int duration) {
+//        this.duration = duration;
+//    }
+//}
