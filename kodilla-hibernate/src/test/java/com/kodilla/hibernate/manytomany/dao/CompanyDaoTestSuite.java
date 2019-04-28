@@ -10,14 +10,16 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
-@Ignore
+import java.util.List;
+
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class CompanyDaoTestSuite {
     @Autowired
     CompanyDao companyDao;
+    @Autowired
+    EmployeeDao employeeDao;
 
-    @Ignore
     @Test
     public void testSaveManyToMany(){
         //given
@@ -41,7 +43,6 @@ public class CompanyDaoTestSuite {
         lindaKovalsky.getCompanies().add(dataMaesters);
         lindaKovalsky.getCompanies().add(greyMatter);
 
-        //when
         companyDao.save(softwareMachine);
         int softwareMachineId = softwareMachine.getId();
         companyDao.save(dataMaesters);
@@ -49,19 +50,24 @@ public class CompanyDaoTestSuite {
         companyDao.save(greyMatter);
         int greyMatterId = greyMatter.getId();
 
+        //when
+        List<Employee> employeeWithSpecyficLastname = employeeDao.retrieveEmployeeWithSpecificLastname("Smith");
+        List<Company> companyWhichSpecificName = companyDao.retrieveCompanyWhichNameStartsWith("Dat");
+
         //then
-        Assert.assertNotEquals(0, companyDao.findById(softwareMachineId));
-        Assert.assertNotEquals(0, companyDao.findById(dataMaestersId));
-        Assert.assertNotEquals(0, companyDao.findById(greyMatterId));
+        System.out.println(employeeWithSpecyficLastname);
+        System.out.println(companyWhichSpecificName);
+        Assert.assertEquals(1, employeeWithSpecyficLastname.size());
+        Assert.assertEquals(1, companyWhichSpecificName.size());
 
         //cleanUp
-//        try{
-//            companyDao.deleteById(softwareMachineId);
-//            companyDao.deleteById(dataMaestersId);
-//            companyDao.deleteById(greyMatterId);
-//        }catch (Exception e) {
-//            //do nothing
-//        }
+        try{
+            companyDao.deleteById(softwareMachineId);
+            companyDao.deleteById(dataMaestersId);
+            companyDao.deleteById(greyMatterId);
+        }catch (Exception e) {
+            //do nothing
+        }
 
     }
 }
