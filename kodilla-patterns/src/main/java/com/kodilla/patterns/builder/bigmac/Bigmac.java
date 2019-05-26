@@ -69,6 +69,7 @@ public class Bigmac {
             availableIngredients.add("pieczarki");
             availableIngredients.add("krewetki");
             availableIngredients.add("ser");
+            
             return availableIngredients.stream()
                     .anyMatch(availableIngredient -> availableIngredient.equals(ingredient));
         }

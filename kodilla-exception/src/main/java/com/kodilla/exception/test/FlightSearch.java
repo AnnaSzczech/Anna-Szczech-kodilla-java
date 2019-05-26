@@ -10,6 +10,7 @@ public class FlightSearch {
         Map<String, Boolean> flights = new HashMap<>();
         flights.put("Chopin Airport", true);
 
+
         if (!(flights.containsKey(flight.getArrivalAirport()))) {
             throw new RouteNotFoundException();
         }

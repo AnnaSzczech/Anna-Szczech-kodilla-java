@@ -1,42 +1,40 @@
-//package com.kodilla.hibernate.task.dao;
-//
-//import com.kodilla.hibernate.task.Task;
-//import com.kodilla.hibernate.task.TaskFinancialDetails;
-//import com.kodilla.hibernate.tasklist.TaskList;
-//import org.junit.Assert;
-//import org.junit.Ignore;
-//import org.junit.Test;
-//import org.junit.runner.RunWith;
-//import org.springframework.beans.factory.annotation.Autowired;
-//import org.springframework.boot.test.context.SpringBootTest;
-//import org.springframework.test.context.junit4.SpringRunner;
-//
-//import java.math.BigDecimal;
-//import java.util.List;
-//
-//@Ignore
-//@RunWith(SpringRunner.class)
-//@SpringBootTest
-//public class TaskFinancialDetailsDaoTestSuite {
-//    @Autowired
-//    private TaskFinancialDetailsDao taskFinancialDetailsDao;
-//
-//    @Ignore
-//    @Test
-//    public void testFindByPaid(){
-//        TaskFinancialDetails taskFinancialDetails = new TaskFinancialDetails(new BigDecimal(115), false);
-//        taskFinancialDetailsDao.save(taskFinancialDetails);
-//        int id = taskFinancialDetails.getId();
-//
-//        //When
-//        List<TaskFinancialDetails> resultList = taskFinancialDetailsDao.findByPaid(false);
-//
-//        //Then
-//        Assert.assertEquals(3, resultList.size());
-//
-//        //CleanUp
-////        taskFinancialDetailsDao.deleteById(id);
-//    }
-//
-//
-//}
+package com.kodilla.hibernate.task.dao;
+
+import com.kodilla.hibernate.task.Task;
+import com.kodilla.hibernate.task.TaskFinancialDetails;
+import com.kodilla.hibernate.tasklist.TaskList;
+import org.junit.Assert;
+import org.junit.Ignore;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.junit4.SpringRunner;
+
+import java.math.BigDecimal;
+import java.util.List;
+
+@RunWith(SpringRunner.class)
+@SpringBootTest
+public class TaskFinancialDetailsDaoTestSuite {
+    @Autowired
+    private TaskFinancialDetailsDao taskFinancialDetailsDao;
+
+    @Test
+    public void testFindByPaid(){
+        TaskFinancialDetails taskFinancialDetails = new TaskFinancialDetails(new BigDecimal(115), false);
+        taskFinancialDetailsDao.save(taskFinancialDetails);
+        int id = taskFinancialDetails.getId();
+
+        //When
+        List<TaskFinancialDetails> resultList = taskFinancialDetailsDao.findByPaid(false);
+
+        //Then
+        Assert.assertNotEquals(0, resultList.size());
+
+        //CleanUp
+//        taskFinancialDetailsDao.deleteById(id);
+    }
+
+
+}
