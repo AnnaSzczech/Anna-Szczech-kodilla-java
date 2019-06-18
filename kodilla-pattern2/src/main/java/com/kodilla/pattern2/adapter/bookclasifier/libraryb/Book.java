@@ -1,16 +1,14 @@
-package com.kodilla.pattern2.adapter.bookclasifier.librarya;
+package com.kodilla.pattern2.adapter.bookclasifier.libraryb;
 
-public class BookA {
+public class Book {
     private final String author;
     private final String title;
     private final int publicationYear;
-    private final String signature;
 
-    public BookA(final String author, final String title, final int publicationYear, final String signature) {
+    public Book(final String author, final String title, final int publicationYear) {
         this.author = author;
         this.title = title;
         this.publicationYear = publicationYear;
-        this.signature = signature;
     }
 
     public String getAuthor() {
@@ -23,9 +21,5 @@ public class BookA {
 
     public int getPublicationYear() {
         return publicationYear;
-    }
-
-    public String getSignature() {
-        return signature;
     }
 }
